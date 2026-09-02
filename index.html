@@ -183,21 +183,47 @@
   .story{
     padding:20px 0;
     border-bottom:1px solid var(--line);
-    display:grid;
-    grid-template-columns:110px 1fr;
-    gap:5px 22px;
   }
   .story:last-child{border-bottom:none;}
-  @media (max-width:640px){
-    .story{grid-template-columns:1fr;}
+
+  .story-summary{
+    cursor:pointer;
+    list-style:none;
+    display:flex;
+    align-items:center;
+    gap:10px;
   }
+  .story-summary::-webkit-details-marker{display:none;}
+  .story-summary::before{
+    content:'▸';
+    color:var(--gold);
+    display:inline-block;
+    transition:transform .2s ease;
+  }
+  .story[open] .story-summary::before{
+    transform:rotate(90deg);
+  }
+  @media (prefers-reduced-motion: reduce){
+    .story-summary::before{transition:none;}
+  }
+
   .story .story-title{
     font-family:'Fraunces', serif;
     font-size:1.2rem;
     font-weight:500;
-    grid-column:1 / -1;
-    margin:0 0 6px 0;
+    margin:0;
     color:var(--cream);
+    display:inline;
+  }
+
+  .story-body{
+    display:grid;
+    grid-template-columns:110px 1fr;
+    gap:5px 22px;
+    margin-top:14px;
+  }
+  @media (max-width:640px){
+    .story-body{grid-template-columns:1fr;}
   }
   .story .label{
     font-size:0.78rem;
@@ -339,8 +365,9 @@
   <hr class="divider">
   <h2 class="record-label">RECORD</h2>
 
-  <article class="story" id="story-1">
-    <h3 class="story-title">IT 인프라 실무 경험 · 정보보안 전환</h3>
+  <details class="story" id="story-1">
+    <summary class="story-summary"><h3 class="story-title">IT 인프라 실무 경험 · 정보보안 전환</h3></summary>
+    <div class="story-body">
     <div class="label">상황</div>
     <p class="value">원격보안관제 인턴을 마친 뒤 정보보안 직무로 바로 취업하지 못해, 인접 실무를 거치게 됨</p>
     <div class="label">행동</div>
@@ -353,10 +380,12 @@
       ·-->
       <a href="linkedin-profile.png" target="_blank">LinkedIn 프로필</a>
     </p>
-  </article>
+    </div>
+  </details>
 
-  <article class="story" id="story-2">
-    <h3 class="story-title">맨몸 운동 (턱걸이·머슬업)</h3>
+  <details class="story" id="story-2">
+    <summary class="story-summary"><h3 class="story-title">맨몸 운동 (턱걸이·머슬업)</h3></summary>
+    <div class="story-body">
     <div class="label">상황</div>
     <p class="value">4년 전부터 턱걸이 훈련을 꾸준히 이어옴</p>
     <div class="label">행동</div>
@@ -367,10 +396,12 @@
     <p class="value">
       <a href="https://youtube.com/shorts/q-4Po-REsSU" target="_blank">유튜브 머슬업 영상 링크</a>
     </p>
-  </article>
+    </div>
+  </details>
 
-  <article class="story" id="story-3">
-    <h3 class="story-title">JPOP 감상</h3>
+  <details class="story" id="story-3">
+    <summary class="story-summary"><h3 class="story-title">JPOP 감상</h3></summary>
+    <div class="story-body">
     <div class="label">상황</div>
     <p class="value">평소 JPOP을 즐겨 들음</p>
     <div class="label">행동</div>
@@ -383,7 +414,8 @@
       ·
       <a href="playlist.png" target="_blank">재생목록 사진</a>    
     </p>
-  </article>
+    </div>
+  </details>
 
   <footer>
     contact — email

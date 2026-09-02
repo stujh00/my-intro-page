@@ -17,7 +17,6 @@
     --cream:#F4F0E4;
     --dim:#A2A8CC;
     --line:rgba(216,179,111,0.25);
-    --logo-gold:#E3C583;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;max-width:100%;overflow-x:hidden;}
@@ -40,21 +39,6 @@
     line-height:1.6;
   }
   a{color:var(--gold);}
-
-  .site-header{
-    display:flex;
-    align-items:center;
-    max-width:1000px;
-    margin:0 auto;
-    padding:clamp(14px, 3vw, 22px) clamp(18px, 4vw, 32px) 0;
-  }
-  .site-header .logo{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    font-size:1.3rem;
-    color:var(--logo-gold);
-    letter-spacing:0.02em;
-  }
 
   .wrap{
     max-width:1000px;
@@ -79,13 +63,6 @@
     width:34px;
     height:34px;
     opacity:0.95;
-  }
-
-  .eyebrow{
-    margin:0;
-    font-size:0.85rem;
-    color:var(--dim);
-    max-width:52ch;
   }
 
   h1{
@@ -302,10 +279,6 @@
 </head>
 <body>
 
-<header class="site-header">
-  <span class="logo"></span>
-</header>
-
 <div class="wrap">
 
   <!-- ============ 카드1: 대상과 목적 (한 문장) + 카드2: 근거 요약 ============ -->
@@ -314,14 +287,13 @@
       <path d="M20 0 L23 17 L40 20 L23 23 L20 40 L17 23 L0 20 L17 17 Z" fill="#D8B36F"/>
     </svg>
 
-    <p class="eyebrow"></p>
     <h1>박지훈</h1>
     <p class="email-line"><a href="mailto:stujh00@naver.com">stujh00@naver.com</a></p>
     <p class="subtitle">모든 사람에게 제 자신을 소개하는 페이지입니다</p>
     <!--<p class="subtitle">정보보안 분야에 관심이 있고, 이를 위한 경험을 쌓고 있습니다</p>-->
 
     <div class="portrait">
-      <img src="jihun.jpg" alt="[이름] 사진" class="portrait-img">
+      <img src="jihun.jpg" alt="박지훈이 야외에서 촬영한 인물 사진" class="portrait-img">
     </div>
 
     <div class="snapshot">

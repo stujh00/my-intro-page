@@ -308,6 +308,11 @@
   .workshop button {background:var(--gold);color:var(--night);border:0;border-radius:6px;padding:12px 18px;font:inherit;cursor:pointer;}
   .workshop button:disabled {opacity:.55;cursor:not-allowed;}
   .workshop a {display:inline-block;margin:8px 0;}
+  .workshop input,.workshop select {display:block;width:100%;max-width:420px;margin:8px 0 16px;padding:10px;font:inherit;}
+  .workshop button {margin:8px 4px 8px 0;}
+  .workshop li {margin:12px 0;overflow-wrap:anywhere;}
+  .workshop summary {cursor:pointer;margin:18px 0;}
+  [hidden] {display:none!important;}
 </style>
 </head>
 <body>
@@ -425,13 +430,35 @@
   </details>
 
   <section class="workshop" aria-labelledby="workshop-title">
-    <p class="record-label">PRIVATE · 非公開 / 비공개 영역</p>
+    <p class="record-label">PRIVATE · 비공개 영역</p>
     <h2 id="workshop-title">나만의 작업실</h2>
-    <p>위 소개는 누구나 볼 수 있습니다. 이 작업실의 자료는 패스키로 인증한 뒤에만 확인할 수 있습니다.</p>
-    <p>잠김 · 현재 카드 1 진행 단계입니다. 패스키 등록·로그인은 다음 단계에서 연결합니다.</p>
-    <button type="button" disabled>패스키 로그인 — 연결 예정</button>
+    <p>위 소개는 누구나 볼 수 있습니다. 작업실은 패스키로 인증한 뒤에만 열립니다. 비공개 자료는 모두 만든 예시입니다.</p>
+    <p id="workshop-status" role="status" aria-live="polite">잠김 · 패스키로 로그인해 주세요.</p>
+    <div id="signed-out">
+      <label for="username">계정</label>
+      <select id="username"><option value="owner-a">owner-a</option><option value="tester-b">tester-b</option></select>
+      <button type="button" id="login">패스키 로그인</button>
+      <details><summary>첫 패스키 등록</summary>
+        <p>관리자가 발급한 일회용 등록권이 필요합니다. 등록권은 로그인에 사용하지 않으며 첫 등록 뒤 폐기됩니다.</p>
+        <label for="enrollment-token">일회용 등록권</label>
+        <input id="enrollment-token" type="text" autocomplete="off" spellcheck="false">
+        <label for="first-name">패스키 이름</label>
+        <input id="first-name" type="text" maxlength="80" value="주 사용 패스키">
+        <button type="button" id="first-register">첫 패스키 등록</button>
+      </details>
+    </div>
+    <div id="signed-in" hidden>
+      <p>로그인 계정: <strong id="account-label"></strong></p>
+      <button type="button" id="logout">로그아웃</button>
+      <h3>비공개 예시 자료</h3><div id="private-content"></div>
+      <h3>내 패스키 목록</h3><ul id="key-list"></ul>
+      <label for="extra-name">추가 패스키 이름</label><input id="extra-name" type="text" maxlength="80" value="예비 패스키">
+      <button type="button" id="add-key">패스키 추가 등록</button>
+      <p id="key-policy"></p>
+    </div>
+    <p>비밀번호 없이 패스키로만 로그인합니다. 마지막 패스키 삭제는 막습니다. 모든 패스키를 잃으면 셀프 복구할 수 없습니다.</p>
     <p><a href="/api/private">비공개 자료 주소 직접 확인</a></p>
-    <p>과제 8의 비공개 자료에는 만들어 넣은 예시 내용만 사용합니다. 연락처는 제출용 예시 주소입니다.</p>
+    <noscript>패스키를 사용하려면 JavaScript를 켜 주세요. 공개 소개는 그대로 볼 수 있습니다.</noscript>
   </section>
 
   <footer>
@@ -440,5 +467,6 @@
 
 </div>
 
+<script src="/workshop.js" defer></script>
 </body>
 </html>

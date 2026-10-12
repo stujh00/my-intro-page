@@ -1,0 +1,1 @@
+{"name":"t08-intro-passkeys","private":true,"version":"1.0.0","engines":{"node":"22.x"},"scripts":{"build":"node scripts/build.cjs","test":"node --test test/*.cjs"},"dependencies":{"@simplewebauthn/server":"14.0.3","@simplewebauthn/browser":"13.3.0"},"devDependencies":{"esbuild":"0.25.12"}}
